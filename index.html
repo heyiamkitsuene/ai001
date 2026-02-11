@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>履安出行｜山泥傾瀉風險平台</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="logo">🏔️ 履安出行</div>
+  <nav>
+    <button onclick="showPage('home')">首頁</button>
+    <button onclick="showPage('ai')">AI 判斷</button>
+    <button onclick="showPage('map')">風險地圖</button>
+    <button onclick="showPage('weather')">天氣</button>
+    <button onclick="showPage('safety')">安全知識</button>
+    <button onclick="showPage('contact')">緊急聯絡</button>
+    <button onclick="showPage('news')">新聞</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- ================= HOME ================= -->
+<section id="home" class="page active">
+  <div class="hero">
+    <h1>履安出行 · 智慧山泥傾瀉風險平台</h1>
+    <p>結合 AI 圖像分析、地理風險評估與即時通報系統，協助市民及政府及早預警、即時應變。</p>
+    <button onclick="showPage('ai')" class="primary-btn">立即開始分析</button>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <h3>📷 AI 圖像判斷</h3>
+      <p>上傳坡面照片，即時模擬 AI 風險分析。</p>
+    </div>
+    <div class="card">
+      <h3>🗺️ 風險地圖</h3>
+      <p>視覺化展示區域潛在山泥傾瀉熱點。</p>
+    </div>
+    <div class="card">
+      <h3>🚨 緊急聯絡</h3>
+      <p>一鍵查看官方求助熱線。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AI ================= -->
+<section id="ai" class="page">
+  <h2>📷 AI 坡面圖片分析</h2>
+
+  <div class="panel">
+    <input type="file" id="imageInput" accept="image/*"/>
+    <button onclick="analyzeImage()">開始 AI 分析</button>
+    <div id="preview"></div>
+    <p id="aiResult" class="result-text"></p>
+  </div>
+
+  <h3>📐 地形資料輸入</h3>
+  <div class="form-grid">
+    <label>坡度角（度）<input type="number" id="slope"></label>
+    <label>土壤類型
+      <select id="soil">
+        <option value="clay">黏土</option>
+        <option value="sand">砂土</option>
+        <option value="rock">岩石</option>
+      </select>
+    </label>
+    <label>含水量 (%) <input type="number" id="water"></label>
+    <label>植被覆蓋率 (%) <input type="number" id="veg"></label>
+  </div>
+
+  <button onclick="calculateRisk()" class="primary-btn">計算風險</button>
+
+  <div id="resultBox" class="result-box"></div>
+</section>
+
+<!-- ================= MAP ================= -->
+<section id="map" class="page">
+  <h2>🗺️ 香港山泥傾瀉風險地圖（模擬）</h2>
+  <iframe src="https://www.openstreetmap.org/export/embed.html"
+          class="map-frame"></iframe>
+  <p>🔴 高風險 ｜ 🟡 中風險 ｜ 🟢 低風險</p>
+</section>
+
+<!-- ================= WEATHER ================= -->
+<section id="weather" class="page">
+  <h2>🌦️ 天氣預報（模擬）</h2>
+  <div class="cards">
+    <div class="card">降雨量：35 mm/h</div>
+    <div class="card">濕度：85%</div>
+    <div class="card">風險等級：中</div>
+  </div>
+</section>
+
+<!-- ================= SAFETY ================= -->
+<section id="safety" class="page">
+  <h2>📘 山泥傾瀉安全知識</h2>
+  <ul class="list">
+    <li>暴雨期間避免靠近斜坡</li>
+    <li>發現裂縫、滲水應立即遠離</li>
+    <li>發生滑坡立即致電 999</li>
+  </ul>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="page">
+  <h2>🚨 緊急聯絡</h2>
+  <div class="cards">
+    <div class="card">📞 緊急求助：999</div>
+    <div class="card">🏛️ 政府熱線：1823</div>
+    <div class="card">🌧️ 天文台：1878200</div>
+  </div>
+</section>
+
+<!-- ================= NEWS ================= -->
+<section id="news" class="page">
+  <h2>📰 最新新聞</h2>
+  <ul class="list">
+    <li>2026-02-10｜新界暴雨引發多宗山泥傾瀉警報</li>
+    <li>2026-02-07｜政府升級斜坡安全監測系統</li>
+    <li>2026-02-02｜CEDD 發布最新斜坡風險報告</li>
+  </ul>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 履安出行 Landslide AI Platform</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
